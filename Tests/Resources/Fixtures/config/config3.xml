@@ -5,7 +5,6 @@
                 manager-name="default"
                 route-basepath="/cms/routes"
                 content-basepath="/cms/content"
-                use-sonata-admin="auto"
                 enable-initializer="true"
             />
         </persistence>
