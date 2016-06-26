@@ -20,7 +20,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * @author Maximilian Berghoff <Maximilian.Berghoff@mayflower.de>
  */
-class RouteAdvanced extends AbstractType
+class RouteAdvancedType extends AbstractType
 {
     /**
      * {@inheritdoc}

@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.0.0 (unreleased)
+------------------
+
+* **2016-01-09**: Move admin definitions and dependencies to sonata-admin-integration bundle. Add form types for admin
+  usage.
+
 1.4.0
 -----
 

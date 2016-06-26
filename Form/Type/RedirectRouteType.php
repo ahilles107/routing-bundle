@@ -20,7 +20,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * @author Maximilian Berghoff <Maximilian.Berghoff@mayflower.de>
  */
-class RedirectRoute extends AbstractType
+class RedirectRouteType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -32,7 +32,7 @@ class RedirectRoute extends AbstractType
             ->add(
                 'parentDocument',
                 TreeModelType::class,
-                ['choice_list' => array(), 'select_root_node' => true, 'root_node' => $rootNode]
+                ['choice_list' => [], 'select_root_node' => true, 'root_node' => $rootNode]
             )
             ->add('name', TextType::class)
             ->add('routeName', TextType::class, ['required' => false])
