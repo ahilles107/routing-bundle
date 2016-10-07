@@ -18,21 +18,45 @@ use Symfony\Cmf\Bundle\RoutingBundle\Form\Data\RouteAdvancedData;
 /**
  * @author Maximilian Berghoff <Maximilian.Berghoff@mayflower.de>
  */
-class RouteAdvancedDataConverterTest extends PHPUnit_Framework_TestCase
+class RouteAdvancedDataConverterTest extends AbstractRouteConverterTest
 {
-    public function setUp()
+    /**
+     * {@inheritdoc}
+     */
+    protected function buildConverter()
     {
-        $this->converter = new RouteAdvancedDataConverter();
+        return new RouteAdvancedDataConverter();
     }
 
-    public function testToDocument()
+    /**
+     * {@inheritdoc}
+     */
+    protected function buildDTO()
     {
-        $route = new Route();
-        $route->setParentDocument(new Route());
-        $route->setName('name');
-
         $dto = new RouteAdvancedData();
         $dto->variablePattern = 'pattern';
+        $dto->defaults['_controller'] = 'test:indexAction';
+        $dto->options['key'] = 'value';
+        $dto->options['compiler_class'] = 'Symfony\\Component\\Routing\\RouteCompiler';
 
+        return $dto;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function buildRoute()
+    {
+        $route = new Route();
+        $route->setVariablePattern('pattern');
+        $route->setDefault('_controller', 'test:indexAction');
+        $route->setOptions(['key' => 'value', 'compiler_class' => 'Symfony\\Component\\Routing\\RouteCompiler']);
+
+        return $route;
+    }
+
+    protected function buildStartingDTO()
+    {
+        return new RouteAdvancedData();
     }
 }

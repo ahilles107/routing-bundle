@@ -38,7 +38,7 @@ class RouteDataConverter implements Converter
     {
         $this->routeGeneralDataConverter = $converter;
     }
-    
+
     /**
      * {@inheritdoc}
      *
@@ -51,7 +51,7 @@ class RouteDataConverter implements Converter
     {
         $document = $this->routeAdvancedDataConverter->toDocument($dto->routeAdvanced, $document);
         $document = $this->routeGeneralDataConverter->toDocument($dto->routeGeneral, $document);
-        
+
         return $document;
     }
 
@@ -67,5 +67,7 @@ class RouteDataConverter implements Converter
     {
         $dto->routeAdvanced = $this->routeAdvancedDataConverter->toDataTransferObject($document, new  RouteAdvancedData());
         $dto->routeGeneral = $this->routeGeneralDataConverter->toDataTransferObject($document, new  RouteGeneralData());
+
+        return $dto;
     }
 }
